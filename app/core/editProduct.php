@@ -1,6 +1,6 @@
 <?php
 
-function editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProduct, $config)
+function editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProduct, $stock, $config)
 {
     $fetchProduct = "SELECT * FROM products WHERE id = $idProduct";
     $result = mysqli_query($config, $fetchProduct);
@@ -10,7 +10,7 @@ function editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProdu
 
             $randomString = uniqid();
 
-            $sql = "UPDATE products SET nameProduct = '$name', price = '$price', category = '$category', imageUrl = '$imageUrl', brand = '$brand', urlProduct = '$url', codeProduct = '$randomString' WHERE id = $idProduct";
+            $sql = "UPDATE products SET nameProduct = '$name', price = '$price', category = '$category', imageUrl = '$imageUrl', brand = '$brand', urlProduct = '$url', codeProduct = '$randomString', stock = '$stock' WHERE id = $idProduct";
 
             $query = $config->query($sql);
             if ($query != null) {
@@ -20,7 +20,7 @@ function editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProdu
             }
         } else {
 
-            $sql = "UPDATE products SET nameProduct = '$name', price = '$price', category = '$category', imageUrl = '$imageUrl', brand = '$brand', urlProduct = '$url' WHERE id = $idProduct";
+            $sql = "UPDATE products SET nameProduct = '$name', price = '$price', category = '$category', imageUrl = '$imageUrl', brand = '$brand', urlProduct = '$url', stock = '$stock' WHERE id = $idProduct";
 
             $query = $config->query($sql);
             if ($query != null) {

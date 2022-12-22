@@ -1,11 +1,11 @@
 <?php
 
-function createProduct($name, $price, $category, $url, $brand, $imageUrl, $config)
+function createProduct($name, $price, $category, $url, $brand, $imageUrl, $stock, $config)
 {
     $randomString = uniqid();
 
-    $sql = "INSERT INTO products(nameProduct, brand, imageUrl, price, category, urlProduct, codeProduct, creationDate) 
-          VALUE (\"$name\", \"$brand\", \"$imageUrl\", \"$price\", \"$category\", \"$url\", \"$randomString\", NOW())";
+    $sql = "INSERT INTO products(nameProduct, brand, imageUrl, price, category, urlProduct, codeProduct, stock, creationDate) 
+    VALUE (\"$name\", \"$brand\", \"$imageUrl\", \"$price\", \"$category\", \"$url\", \"$randomString\", \"$stock\", NOW())";
 
     $query = $config->query($sql);
     if ($query != null) {

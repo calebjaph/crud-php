@@ -13,8 +13,9 @@ if (isset($_POST["createProduct"])) {
     $url = $_POST["url"];
     $imageUrl = $_POST["urlImage"];
     $category = $_POST["category"];
+    $stock = $_POST["stock"];
 
-    createProduct($name, $price, $category, $url, $brand, $imageUrl, $CONFIG);
+    createProduct($name, $price, $category, $url, $brand, $imageUrl, $stock, $CONFIG);
 }
 
 
@@ -57,6 +58,10 @@ if (isset($_POST["createProduct"])) {
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">URL Page</label>
                 <input type="text" class="form-control" name="url">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Stock</label>
+                <input type="text" class="form-control" name="stock" value="0">
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">Categories</label>

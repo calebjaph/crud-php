@@ -23,7 +23,7 @@ include("./app/helpers/tableContent.php")
     <div style="width: 89%; margin: 0 auto;">
         <br>
         <h1><b>CRUD</b> Basic</h1>
-        <small>Product system made in PHP</small> <br><br>
+        <small>Product System made in PHP</small> <br><br>
         <a href="createProduct.php">
             <button type="button" class="btn btn-primary">Add Product</button>
         </a>

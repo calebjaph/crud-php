@@ -14,8 +14,9 @@ if (isset($_POST["editProduct"])) {
     $imageUrl = $_POST["urlImage"];
     $category = $_POST["category"];
     $idProduct = $_GET["id"];
+    $stock = $_POST["stock"];
 
-    editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProduct, $CONFIG);
+    editProduct($name, $price, $category, $url, $brand, $imageUrl, $idProduct, $stock, $CONFIG);
 }
 
 if (!isset($_GET["id"])) {
@@ -50,7 +51,6 @@ while ($product = mysqli_fetch_array($result)) {
                                     } else {
                                         echo $product['codeProduct'];
                                     }
-
                                     ?></b></small>
             <br>
             <br>
@@ -74,6 +74,17 @@ while ($product = mysqli_fetch_array($result)) {
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label">URL Page</label>
                     <input type="text" class="form-control" name="url" value="<?php echo $product['urlProduct'] ?>">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Stock</label>
+                    <input type="text" class="form-control" name="stock" value="<?php
+                                                                                if ($product['stock'] >= 1) {
+                                                                                    echo $product['stock'];
+                                                                                } else {
+                                                                                    echo $product['stock'];
+                                                                                }
+
+                                                                                ?>">
                 </div>
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">Categories</label>
