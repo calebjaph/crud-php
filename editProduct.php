@@ -44,6 +44,15 @@ while ($product = mysqli_fetch_array($result)) {
         <div class="container">
             <br><br>
             <h1>Edit Product</h1>
+            <small>Code Product: <b><?php
+                                    if ($product['codeProduct'] === "N/A") {
+                                        echo "Unregistered product 🚫";
+                                    } else {
+                                        echo $product['codeProduct'];
+                                    }
+
+                                    ?></b></small>
+            <br>
             <br>
             <form class="row g-3" action="" method="post" enctype="multipart/form-data">
                 <div class="col-md-6">
@@ -70,7 +79,7 @@ while ($product = mysqli_fetch_array($result)) {
                     <label for="inputState" class="form-label">Categories</label>
                     <select id="inputState" name="category" class="form-select">
                         <?php
-                        $fetchCategories = "SELECT * FROM categories WHERE active = 1";
+                        $fetchCategories = "SELECT * FROM categories WHERE active = 1 order by name = '$product[category]' desc";
                         $result = mysqli_query($CONFIG, $fetchCategories);
                         while ($category = mysqli_fetch_array($result)) {
                             echo '<option>' . $category['name'] . '</option>';

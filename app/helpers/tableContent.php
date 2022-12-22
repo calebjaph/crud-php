@@ -17,6 +17,7 @@ function TableProducts($config)
             <th scope="col">Brand</th>
             <th scope="col">Price</th>
             <th scope="col">Category</th>
+            <th scope="col">Code Product</th>
             <th scope="col">Visit Product</th>
             <th scope="col">Actions</th>
         </tr>
@@ -28,11 +29,12 @@ function TableProducts($config)
             echo '<tbody>
         <tr>
             <th scope="row">' . $products['id'] . '</th>
-            <th scope="row"><img src="' . $products['imageUrl'] . '" width="80" height="60" class="img-thumbnail" alt="..."></th>
+            <th scope="row"><img src="' . $products['imageUrl'] . '" width="76" height="20" class="img-thumbnail" alt="..."></th>
             <td>' . $products['nameProduct'] . '</td>
             <td>' . $products['brand'] . '</td>
-            <td>' . $products['price'] . '</td>
+            <td>$' . number_format($products['price'], 2) . '</td>
             <td>' . $products['category'] . '</td>
+            <td>' . $products['codeProduct'] . '</td>
             <td><a href="' . $products['urlProduct'] . '" target="_blank" rel="noopener noreferrer">Visit Product</a></td>
             <td>
                 <a href="editProduct.php?id=' . $products['id'] . '" rel="noopener noreferrer">

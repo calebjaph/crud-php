@@ -2,23 +2,15 @@
 
 function createProduct($name, $price, $category, $url, $brand, $imageUrl, $config)
 {
-    $found = false;
-    $queryDB = "select * from products where nameProduct=\"$name\" ";
-    $query = $config->query($queryDB);
-    while ($r = $query->fetch_array()) {
-        $found = true;
-        break;
-    }
-    if ($found) {
-        header("location:  http://localhost/crud/createProduct.php?response=error");
+    $randomString = uniqid();
+
+    $sql = "INSERT INTO products(nameProduct, brand, imageUrl, price, category, urlProduct, codeProduct, creationDate) 
+          VALUE (\"$name\", \"$brand\", \"$imageUrl\", \"$price\", \"$category\", \"$url\", \"$randomString\", NOW())";
+
+    $query = $config->query($sql);
+    if ($query != null) {
+        header("location: http://localhost/crud/index.php");
     } else {
-        $sql = "insert into products(nameProduct, brand, imageUrl, price, category, urlProduct, creationDate) 
-          value (\"$name\", \"$brand\", \"$imageUrl\", \"$price\", \"$category\", \"$url\", NOW())";
-        $query = $config->query($sql);
-        if ($query != null) {
-            header("location: http://localhost/crud/index.php");
-        } else {
-            echo "error";
-        }
+        echo '<div class="alert alert-danger" role="alert">Error Description ' . mysqli_error($config) . '</div>';
     }
 }

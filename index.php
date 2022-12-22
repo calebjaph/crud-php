@@ -20,14 +20,19 @@ include("./app/helpers/tableContent.php")
 </head>
 
 <body>
-    <div class="container">
+    <div style="width: 89%; margin: 0 auto;">
         <br>
-        <h1><b>CRUD</b> Basic</h1><br>
-        <?php TableProducts($CONFIG); ?>
+        <h1><b>CRUD</b> Basic</h1>
+        <small>Product system made in PHP</small> <br><br>
         <a href="createProduct.php">
             <button type="button" class="btn btn-primary">Add Product</button>
         </a>
+
+        <br><br>
+        <?php TableProducts($CONFIG); ?>
+
     </div>
+    <br><br><br>
 </body>
 
 </html>
