@@ -6,15 +6,6 @@ function TableProducts($config)
     $countFetchProducts = mysqli_query($config, "SELECT COUNT(1) AS Total FROM products");
     $countProducts = mysqli_fetch_assoc($countFetchProducts);
 
-    function stock($stock)
-    {
-        if ($stock >= 1) {
-            echo $stock;
-        } else {
-            echo "Out Stock 🚫";
-        }
-    }
-
     if ($countProducts['Total'] > 0) {
 
         echo '<table class="table">

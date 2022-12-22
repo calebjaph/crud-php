@@ -5,6 +5,11 @@
 include("./app/config/config.php");
 include("./app/core/createProduct.php");
 
+if (!isset($_SESSION["user_id"])) {
+    header("location: login.php");
+    session_destroy();
+}
+
 if (isset($_POST["createProduct"])) {
 
     $name = $_POST["name"];

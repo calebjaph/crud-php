@@ -3,7 +3,12 @@
 // CONFIG DB
 
 include("./app/config/config.php");
-include("./app/helpers/tableContent.php")
+include("./app/helpers/tableContent.php");
+
+if (!isset($_SESSION["user_id"])) {
+    header("location: login.php");
+    session_destroy();
+}
 
 ?>
 
@@ -20,10 +25,10 @@ include("./app/helpers/tableContent.php")
 </head>
 
 <body>
-    <div style="width: 89%; margin: 0 auto;">
+    <div style="width: 95%; margin: 0 auto;">
         <br>
         <h1><b>CRUD</b> Basic</h1>
-        <small>Product System made in PHP</small> <br><br>
+        <small>Product System made in PHP | Order by Price</small> <br><br>
         <a href="createProduct.php">
             <button type="button" class="btn btn-primary">Add Product</button>
         </a>
